@@ -1,0 +1,11 @@
+* {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+}
+
+@supports (font-variation-settings: "wght" 450) {
+    * {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 450;
+    }
+}
