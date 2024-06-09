@@ -9,3 +9,80 @@
         font-weight: 450;
     }
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 1rem;
+}
+
+body {
+    color: #fff;
+    background-image: url("/assets/img/maquillage-permanent-draguignan.webp");
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+}
+
+header {
+    padding: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    width: 60%;
+}
+
+em {
+    font-style: normal;
+}
+
+section p {
+    width: 50%;
+}
+
+footer {
+    text-align: center;
+}
+
+.btn {
+    padding: 16px 24px;
+    background-color: #65BDC2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+@media only screen and (max-width: 900px) {
+    h1 {
+        font-size: 1.8rem;
+        width: 70%;
+    }
+
+    section p {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    h1 {
+        font-size: 1.4rem;
+        width: 100%;
+    }
+
+    section p {
+        width: 100%;
+    }
+}
