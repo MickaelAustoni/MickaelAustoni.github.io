@@ -42,16 +42,21 @@ h1 {
     font-weight: 700;
     margin: 0;
     line-height: 1;
-    width: 60%;
+    width: 50%;
+}
+
+section p {
+    width: 50%;
+}
+
+h1, section p {
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
 em {
     font-style: normal;
 }
 
-section p {
-    width: 50%;
-}
 
 footer {
     text-align: center;
@@ -62,8 +67,9 @@ footer {
     background-color: #65BDC2;
     color: #fff;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 4px;
     display: inline-block;
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 900px) {
