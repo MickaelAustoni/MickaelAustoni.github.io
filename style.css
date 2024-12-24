@@ -22,6 +22,7 @@ body {
     background-image: url("/assets/img/maquillage-permanent-draguignan.webp");
     display: flex;
     flex-direction: column;
+    background-size: cover;
 }
 
 main {
