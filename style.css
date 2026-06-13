@@ -1,96 +1,223 @@
+/* ---------- Base ---------- */
+:root {
+    --accent: #65BDC2;
+    --accent-dark: #4a979b;
+    --ink: #2a2a2a;
+    --muted: #5c5c5c;
+    --bg-soft: #f6fbfb;
+}
+
 * {
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
+    box-sizing: border-box;
 }
 
 @supports (font-variation-settings: "wght" 450) {
-    * {
-        font-family: "DM Sans", sans-serif;
-        font-weight: 450;
-    }
+    * { font-weight: 450; }
 }
+
+html { scroll-behavior: smooth; }
 
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
     font-size: 1rem;
+    color: var(--ink);
 }
 
-body {
+h1, h2, h3 { font-weight: 700; line-height: 1.15; }
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+}
+
+.site-header img { height: 64px; width: auto; }
+
+.header-phone {
     color: #fff;
-    background-image: url("/assets/img/maquillage-permanent-draguignan.webp");
-    display: flex;
-    flex-direction: column;
-    background-size: cover;
-}
-
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
-}
-
-header {
-    padding: 30px;
-}
-
-
-h1 {
-    font-size: 2.5rem;
+    text-decoration: none;
     font-weight: 700;
-    margin: 0;
-    line-height: 1;
-    width: 50%;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 10px 16px;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
 }
 
-section p {
-    width: 50%;
+/* ---------- Hero ---------- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)),
+        url("/assets/img/maquillage-permanent-draguignan.webp") center / cover no-repeat;
+    padding: 120px 30px 60px;
 }
 
-h1, section p {
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+.hero-inner { max-width: 640px; }
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin: 0 0 18px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
-em {
-    font-style: normal;
+.lead {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
+.hero-cta { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
 
-footer {
+/* ---------- Buttons ---------- */
+.btn {
+    padding: 15px 26px;
+    background-color: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 700;
+    transition: background-color .2s ease, transform .2s ease;
+}
+.btn:hover { background-color: var(--accent-dark); transform: translateY(-2px); }
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #fff;
+}
+.btn-outline:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* ---------- Sections ---------- */
+section { padding: 72px 0; }
+.services { background: var(--bg-soft); }
+.why { background: #fff; }
+.area { background: var(--bg-soft); }
+.faq { background: #fff; }
+
+section h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin: 0 0 36px;
     text-align: center;
 }
 
-.btn {
-    padding: 16px 24px;
-    background-color: #65BDC2;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
+/* ---------- Services grid ---------- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e6efef;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(101, 189, 194, 0.08);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(101, 189, 194, 0.18); }
+
+.card h3 { margin: 0 0 10px; color: var(--accent-dark); font-size: 1.3rem; }
+.card p { margin: 0 0 16px; color: var(--muted); line-height: 1.55; }
+.price {
     display: inline-block;
-    font-weight: bold;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .9rem;
 }
 
-@media only screen and (max-width: 900px) {
-    h1 {
-        font-size: 1.8rem;
-        width: 70%;
-    }
-
-    section p {
-        width: 80%;
-    }
+/* ---------- Benefits ---------- */
+.benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 760px;
+    display: grid;
+    gap: 16px;
+}
+.benefits li {
+    padding: 18px 22px;
+    background: var(--bg-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    line-height: 1.5;
 }
 
-@media only screen and (max-width: 450px) {
-    h1 {
-        font-size: 1.4rem;
-        width: 100%;
-    }
+/* ---------- Area ---------- */
+.area p {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: var(--muted);
+}
 
-    section p {
-        width: 100%;
-    }
+/* ---------- FAQ ---------- */
+.faq .container { max-width: 760px; }
+.faq details {
+    border: 1px solid #e6efef;
+    border-radius: 8px;
+    padding: 4px 20px;
+    margin-bottom: 14px;
+}
+.faq summary {
+    cursor: pointer;
+    font-weight: 700;
+    padding: 14px 0;
+    list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; float: right; color: var(--accent); font-size: 1.4rem; line-height: 1; }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 0 0 16px; color: var(--muted); line-height: 1.6; }
+
+/* ---------- Contact ---------- */
+.contact { background: var(--accent); color: #fff; text-align: center; }
+.contact h2 { color: #fff; }
+.contact address {
+    font-style: normal;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 28px;
+}
+.contact a { color: #fff; }
+.contact .btn { background: #fff; color: var(--accent-dark); }
+.contact .btn:hover { background: #f0f0f0; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+    background: var(--ink);
+    color: #cfcfcf;
+    text-align: center;
+    padding: 28px 20px;
+}
+.site-footer a { color: var(--accent); text-decoration: none; }
+.site-footer p { margin: 6px 0; font-size: .9rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .site-header { padding: 14px 18px; }
+    .site-header img { height: 48px; }
+    section { padding: 52px 0; }
 }

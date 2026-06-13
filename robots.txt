@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maquillage-permanent-draguignan.com/sitemap.xml
